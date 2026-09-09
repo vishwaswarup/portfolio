@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { FaYoutube } from "react-icons/fa";
 
 import "../styles/Projects.css";
 
@@ -88,6 +89,7 @@ const projects = [
     badge: "GITHUB PROJECT",
     video: "/video/VisionAI_demo.mp4",
     poster: "/video/VisionAI_poster.jpg",
+    youtube: "https://youtube.com/shorts/ll4xwz3JRe4?feature=share",
 
     title: "VisionAI",
 
@@ -181,6 +183,30 @@ function Projects() {
                 {project.badge}
 
               </span>
+
+              {project.youtube && (
+
+                <a
+
+                  href={project.youtube}
+
+                  className="project-youtube-btn"
+
+                  target="_blank"
+
+                  rel="noreferrer"
+
+                  aria-label={`Watch ${project.title} demo on YouTube`}
+
+                >
+
+                  <FaYoutube />
+
+                  View on YouTube
+
+                </a>
+
+              )}
 
               {project.video ? (
 

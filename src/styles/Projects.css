@@ -265,6 +265,51 @@
 
 }
 
+.project-youtube-btn{
+
+    position:absolute;
+
+    top:38px;
+    right:40px;
+
+    z-index:5;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    background:rgba(255,0,0,.85);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    font-size:12px;
+
+    font-weight:600;
+
+    letter-spacing:.5px;
+
+    color:#fff;
+
+    transition:background .3s ease, transform .3s ease;
+
+}
+
+.project-youtube-btn:hover{
+
+    background:rgba(255,0,0,1);
+
+    transform:translateY(-2px);
+
+}
+
 /* ===========================
    CONTENT
 =========================== */
