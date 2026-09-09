@@ -1,0 +1,603 @@
+.projects{
+
+    width:100%;
+
+    padding:120px 8%;
+
+    position:relative;
+
+    overflow:hidden;
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+        to bottom,
+        #050505 0%,
+        #090b12 45%,
+        #050505 100%
+    );
+
+}
+
+.projects::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-180px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:900px;
+    height:500px;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(143,124,255,.15),
+        transparent 70%
+    );
+
+    pointer-events:none;
+
+}
+
+/* ===========================
+   HEADING
+=========================== */
+
+.projects-heading{
+
+    text-align:center;
+
+    margin-bottom:80px;
+
+}
+
+.projects-heading h2{
+
+    font-size:54px;
+
+    font-weight:700;
+
+    margin:18px 0;
+
+}
+
+.projects-subtitle{
+
+    width:720px;
+
+    max-width:95%;
+
+    margin:auto;
+
+    color:#bfbfbf;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}
+
+/* ===========================
+   GRID
+=========================== */
+
+.projects-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:35px;
+
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.project-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(25px);
+
+    transition:.45s ease;
+
+    cursor:pointer;
+
+    isolation:isolate;
+
+}
+
+/* Glow */
+
+.project-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    radial-gradient(
+        circle at center,
+        rgba(143,124,255,.18),
+        transparent 65%
+    );
+
+    opacity:0;
+
+    transition:.45s;
+
+}
+
+.project-card:hover::before{
+
+    opacity:1;
+
+}
+
+.project-card:hover{
+
+    transform:translateY(-12px);
+
+    border-color:#8f7cff;
+
+    box-shadow:
+    0 25px 70px rgba(143,124,255,.20);
+
+}
+
+/* ===========================
+   PROJECT VIDEO
+=========================== */
+
+.project-image{
+
+    position:relative;
+
+    height:290px;
+
+    padding:22px;
+
+    overflow:hidden;
+
+}
+
+.project-video{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    border-radius:20px;
+
+    transition:
+    transform .6s ease,
+    filter .4s ease;
+
+    box-shadow:
+    0 18px 45px rgba(0,0,0,.35);
+
+}
+
+.project-placeholder{
+
+    width:100%;
+
+    height:100%;
+
+    border-radius:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:64px;
+
+    font-weight:700;
+
+    color:#8f7cff;
+
+    background:linear-gradient(135deg, rgba(143,124,255,.14), rgba(143,124,255,.03));
+
+    box-shadow:
+    0 18px 45px rgba(0,0,0,.35);
+
+}
+
+.project-card:hover .project-video{
+
+    transform:scale(1.08);
+
+    filter:brightness(1.05);
+
+}
+/* ===========================
+   BADGE
+=========================== */
+
+.project-badge{
+
+    position:absolute;
+
+    top:38px;
+    left:40px;
+
+    z-index:5;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    background:rgba(0,0,0,.55);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    font-size:12px;
+
+    letter-spacing:2px;
+
+    color:#fff;
+
+}
+
+/* ===========================
+   CONTENT
+=========================== */
+
+.project-content{
+
+    padding:30px;
+
+}
+
+.project-content h3{
+
+    font-size:30px;
+
+    margin-bottom:18px;
+
+    transition:.3s;
+
+}
+
+.project-card:hover h3{
+
+    color:#8f7cff;
+
+}
+
+.project-content p{
+
+    color:#c9c9c9;
+
+    line-height:1.8;
+
+    margin-bottom:26px;
+
+}
+
+/* ===========================
+   TECH TAGS
+=========================== */
+
+.project-tech{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-bottom:30px;
+
+}
+
+.project-tech span{
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.07);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:#ddd;
+
+    font-size:14px;
+
+    transition:.3s ease;
+
+}
+
+.project-tech span:hover{
+
+    background:#8f7cff;
+
+    color:#fff;
+
+    transform:translateY(-3px);
+
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.project-buttons{
+
+    display:flex;
+
+    gap:16px;
+
+}
+
+.project-buttons a{
+
+    flex:1;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    padding:14px 18px;
+
+    border-radius:14px;
+
+    font-weight:600;
+
+    transition:.35s ease;
+
+}
+
+.demo-btn{
+
+    background:#fff;
+
+    color:#111;
+
+}
+
+.demo-btn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 15px 35px rgba(255,255,255,.25);
+
+}
+
+.github-btn{
+
+    background:rgba(255,255,255,.08);
+
+    color:#fff;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(15px);
+
+}
+
+.github-btn:hover{
+
+    transform:translateY(-5px);
+
+    background:rgba(143,124,255,.18);
+
+    border-color:#8f7cff;
+
+    box-shadow:
+    0 15px 35px rgba(143,124,255,.20);
+
+}
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width:1100px){
+
+.projects-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+@media (max-width:768px){
+
+.projects{
+
+padding:70px 20px;
+
+}
+
+.projects-heading h2{
+
+font-size:38px;
+
+}
+
+.projects-subtitle{
+
+font-size:16px;
+
+}
+
+.project-image{
+
+height:220px;
+
+padding:18px;
+
+}
+
+.project-content{
+
+padding:22px;
+
+}
+
+.project-content h3{
+
+font-size:24px;
+
+}
+
+.project-buttons{
+
+flex-direction:column;
+
+}
+
+}
+
+/* ===========================
+   PREMIUM FINISH
+=========================== */
+
+.project-card{
+
+    will-change:transform;
+
+}
+
+.project-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,.08),
+        transparent 35%,
+        transparent 70%,
+        rgba(255,255,255,.04)
+    );
+
+    opacity:0;
+
+    transition:.45s ease;
+
+    pointer-events:none;
+
+}
+
+.project-card:hover::after{
+
+    opacity:1;
+
+}
+
+.project-card:hover{
+
+    transform:
+    translateY(-12px)
+    scale(1.015);
+
+}
+
+/* ===========================
+   BUTTON SHINE
+=========================== */
+
+.demo-btn,
+.github-btn{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.demo-btn::before,
+.github-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:60%;
+
+    height:100%;
+
+    transform:skewX(-25deg);
+
+    background:
+    rgba(255,255,255,.28);
+
+    transition:.6s;
+
+}
+
+.demo-btn:hover::before,
+.github-btn:hover::before{
+
+    left:150%;
+
+}
+
+/* ===========================
+   VIDEO PERFORMANCE
+=========================== */
+
+.project-video{
+
+    display:block;
+
+    object-fit:cover;
+
+}
+
+/* ===========================
+   SMOOTH TRANSITIONS
+=========================== */
+
+.project-card,
+.project-video,
+.project-tech span,
+.project-buttons a{
+
+    transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease,
+    background .35s ease,
+    color .35s ease;
+
+}

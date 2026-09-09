@@ -1,0 +1,545 @@
+/* ===========================
+   HERO SECTION
+=========================== */
+
+.hero {
+
+  position:relative;
+
+  width:100%;
+
+  height:100vh;
+
+  overflow:hidden;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  background:
+
+  radial-gradient(
+    circle at top,
+    #182033,
+    #07090d 55%,
+    #000
+  );
+
+  color:white;
+
+}
+
+
+
+/* ===========================
+   BACKGROUND GLOW
+=========================== */
+
+
+.hero-glow {
+
+  position:absolute;
+
+  width:500px;
+
+  height:500px;
+
+  border-radius:50%;
+
+  filter:blur(120px);
+
+  opacity:0;
+
+  transform:scale(.8);
+
+  will-change:transform, opacity;
+
+}
+
+
+
+.glow-one {
+
+  background:#6c63ff;
+
+  top:-200px;
+
+  left:-150px;
+
+}
+
+
+
+.glow-two {
+
+  background:#00bfff;
+
+  bottom:-200px;
+
+  right:-150px;
+
+}
+
+
+
+/* ===========================
+   FLOATING TECH ICONS
+=========================== */
+
+.hero-tech-layer {
+
+  position:absolute;
+
+  inset:0;
+
+  z-index:1;
+
+  pointer-events:none;
+
+}
+
+.tech-icon {
+
+  position:absolute;
+
+  color:rgba(255,255,255,.16);
+
+  opacity:0;
+
+  transform:scale(.4);
+
+  --glow:0;
+
+  filter:drop-shadow(0 0 calc(var(--glow) * 1px) currentColor);
+
+  will-change:transform, color, filter;
+
+}
+
+.tech-html {
+
+  top:16%;
+
+  left:9%;
+
+  font-size:44px;
+
+}
+
+.tech-css {
+
+  top:68%;
+
+  left:13%;
+
+  font-size:38px;
+
+}
+
+.tech-python {
+
+  top:44%;
+
+  left:5%;
+
+  font-size:34px;
+
+}
+
+.tech-js {
+
+  top:14%;
+
+  right:10%;
+
+  font-size:40px;
+
+}
+
+.tech-react {
+
+  top:66%;
+
+  right:12%;
+
+  font-size:46px;
+
+}
+
+.tech-git {
+
+  top:46%;
+
+  right:6%;
+
+  font-size:32px;
+
+}
+
+
+
+/* ===========================
+   CONTENT
+=========================== */
+
+
+.hero-content {
+
+  position:relative;
+
+  z-index:2;
+
+  width:650px;
+
+  max-width:90%;
+
+  text-align:center;
+
+}
+
+
+
+/* ===========================
+   TAG
+=========================== */
+
+
+.hero-tag {
+
+  display:inline-block;
+
+  font-size:14px;
+
+  letter-spacing:4px;
+
+  color:#9c9c9c;
+
+  margin-bottom:25px;
+
+  opacity:0;
+
+  transform:translateY(24px);
+
+}
+
+
+
+/* ===========================
+   TITLE
+=========================== */
+
+
+.hero-title {
+
+  font-size:64px;
+
+  line-height:1.1;
+
+  font-weight:700;
+
+  margin-bottom:25px;
+
+  opacity:0;
+
+  transform:translateY(28px);
+
+}
+
+
+
+.hero-title span {
+
+  background:
+
+  linear-gradient(
+    90deg,
+    #ffffff,
+    #8f7cff
+  );
+
+
+  -webkit-background-clip:text;
+
+  -webkit-text-fill-color:transparent;
+
+}
+
+
+
+/* ===========================
+   DESCRIPTION
+=========================== */
+
+
+.hero-description {
+
+  font-size:19px;
+
+  line-height:1.8;
+
+  color:rgba(255,255,255,.75);
+
+  margin-bottom:40px;
+
+  opacity:0;
+
+  transform:translateY(24px);
+
+}
+
+
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+
+.hero-buttons {
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:18px;
+
+}
+
+
+
+.btn-reveal {
+
+  display:inline-block;
+
+  opacity:0;
+
+  transform:translateY(20px);
+
+}
+
+
+
+.btn {
+
+  padding:15px 32px;
+
+  border-radius:14px;
+
+  text-decoration:none;
+
+  font-size:16px;
+
+  font-weight:600;
+
+  display:inline-block;
+
+  transition:transform .35s cubic-bezier(.22,1,.36,1), background .3s ease, box-shadow .35s ease;
+
+}
+
+
+
+.btn-primary {
+
+  background:white;
+
+  color:black;
+
+}
+
+
+
+.btn-primary:hover {
+
+  transform:translateY(-5px);
+
+  box-shadow:0 12px 30px rgba(255,255,255,.15);
+
+}
+
+
+
+.btn-secondary {
+
+  color:white;
+
+  background:
+
+  rgba(255,255,255,.08);
+
+  border:1px solid rgba(255,255,255,.15);
+
+  backdrop-filter:blur(20px);
+
+}
+
+
+
+.btn-secondary:hover {
+
+  background:rgba(255,255,255,.15);
+
+  transform:translateY(-5px);
+
+  box-shadow:0 12px 30px rgba(140,124,255,.2);
+
+}
+
+
+
+/* ===========================
+   SCROLL
+=========================== */
+
+
+.scroll-indicator {
+
+  position:absolute;
+
+  bottom:35px;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  color:#aaa;
+
+  font-size:13px;
+
+  letter-spacing:3px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  gap:10px;
+
+  opacity:0;
+
+}
+
+
+
+.scroll-indicator span {
+
+  width:2px;
+
+  height:35px;
+
+  background:white;
+
+  animation:scroll 1.5s infinite;
+
+}
+
+
+
+@keyframes scroll {
+
+  0%{
+
+    opacity:0;
+
+    height:10px;
+
+  }
+
+  50%{
+
+    opacity:1;
+
+  }
+
+  100%{
+
+    opacity:0;
+
+    height:35px;
+
+  }
+
+}
+
+
+
+/* ===========================
+   TABLET
+=========================== */
+
+
+@media(max-width:992px){
+
+
+.hero-title{
+
+  font-size:48px;
+
+}
+
+
+.hero-description{
+
+  font-size:17px;
+
+}
+
+
+.hero-tech-layer{
+
+  display:none;
+
+}
+
+
+}
+
+
+
+/* ===========================
+   MOBILE
+=========================== */
+
+
+@media(max-width:768px){
+
+
+.hero-title{
+
+  font-size:36px;
+
+}
+
+
+.hero-description{
+
+  font-size:15px;
+
+}
+
+
+.hero-buttons{
+
+  flex-direction:column;
+
+}
+
+
+.btn-reveal{
+
+  width:100%;
+
+}
+
+
+.btn{
+
+  width:100%;
+
+}
+
+
+
+}

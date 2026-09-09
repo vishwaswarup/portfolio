@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vishwaswarup.vercel.app/sitemap.xml

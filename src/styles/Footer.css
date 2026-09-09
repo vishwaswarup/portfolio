@@ -1,0 +1,274 @@
+/* ===========================
+   FOOTER
+=========================== */
+
+.footer{
+
+    position:relative;
+
+    width:100%;
+
+    padding:40px 8% 18px;
+
+    background:
+    linear-gradient(
+        to bottom,
+        #050505 0%,
+        #090b12 45%,
+        #050505 100%
+    );
+
+    overflow:hidden;
+
+    color:#fff;
+
+}
+
+/* ===========================
+   TOP DIVIDER
+=========================== */
+
+.footer-divider{
+
+    width:100%;
+
+    height:1px;
+
+    margin-bottom:22px;
+
+    background:
+    linear-gradient(
+        to right,
+        transparent,
+        rgba(143,124,255,.75),
+        transparent
+    );
+
+    box-shadow:
+    0 0 12px rgba(143,124,255,.25);
+
+}
+
+/* ===========================
+   GLOW
+=========================== */
+
+.footer::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-220px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:700px;
+
+    height:320px;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(143,124,255,.10),
+        transparent 70%
+    );
+
+    pointer-events:none;
+
+}
+
+/* ===========================
+   CONTENT
+=========================== */
+
+.footer-container{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    text-align:center;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.footer-title{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    margin-bottom:4px;
+
+}
+
+.footer-role{
+
+    color:#8f7cff;
+
+    font-size:15px;
+
+    margin-bottom:10px;
+
+}
+
+.footer-description{
+
+    max-width:470px;
+
+    color:#bdbdbd;
+
+    font-size:15px;
+
+    line-height:1.6;
+
+    margin-bottom:18px;
+
+}
+
+/* ===========================
+   BACK TO TOP
+=========================== */
+
+.back-top{
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    color:#fff;
+
+    background:
+    rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+    transition:.35s ease;
+
+}
+
+.back-top:hover{
+
+    transform:
+    translateY(-4px)
+    scale(1.05);
+
+    background:#8f7cff;
+
+    border-color:#8f7cff;
+
+    box-shadow:
+    0 10px 28px rgba(143,124,255,.25);
+
+}
+
+/* ===========================
+   COPYRIGHT
+=========================== */
+
+.footer-copy{
+
+    color:#d6d6d6;
+
+    font-size:13px;
+
+    margin-bottom:3px;
+
+}
+
+.footer-credit{
+
+    color:#888;
+
+    font-size:13px;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+.footer{
+
+padding:35px 24px 16px;
+
+}
+
+.footer-divider{
+
+margin-bottom:18px;
+
+}
+
+.footer-title{
+
+font-size:26px;
+
+}
+
+.footer-role{
+
+font-size:14px;
+
+margin-bottom:8px;
+
+}
+
+.footer-description{
+
+font-size:14px;
+
+line-height:1.5;
+
+margin-bottom:15px;
+
+}
+
+.back-top{
+
+width:44px;
+
+height:44px;
+
+font-size:15px;
+
+margin-bottom:15px;
+
+}
+
+.footer-copy,
+.footer-credit{
+
+font-size:12px;
+
+}
+
+}

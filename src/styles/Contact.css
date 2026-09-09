@@ -1,0 +1,464 @@
+/* ===========================
+   CONTACT SECTION
+=========================== */
+
+.contact{
+
+    width:100%;
+    min-height:100vh;
+
+    padding:120px 8%;
+
+    position:relative;
+
+    overflow:hidden;
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+        to bottom,
+        #050505 0%,
+        #090b12 45%,
+        #050505 100%
+    );
+
+}
+
+/* Top Glow */
+
+.contact::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-220px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:900px;
+    height:500px;
+
+    background:
+
+    radial-gradient(
+        circle,
+        rgba(143,124,255,.15),
+        transparent 70%
+    );
+
+    pointer-events:none;
+
+}
+
+/* ===========================
+   LAYOUT
+=========================== */
+
+.contact-container{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:80px;
+
+    align-items:center;
+
+}
+
+/* ===========================
+   LEFT
+=========================== */
+
+.contact-title{
+
+    font-size:52px;
+
+    line-height:1.15;
+
+    margin:20px 0;
+
+}
+
+.contact-title span{
+
+    color:#8f7cff;
+
+}
+
+.contact-description{
+
+    color:#bdbdbd;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    margin-bottom:45px;
+
+}
+
+/* ===========================
+   INFO CARDS
+=========================== */
+
+.contact-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.contact-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:22px;
+
+    border-radius:24px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    transition:.35s ease;
+
+}
+
+.contact-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#8f7cff;
+
+    box-shadow:
+    0 15px 40px rgba(143,124,255,.18);
+
+}
+
+.contact-icon{
+
+    width:60px;
+    height:60px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    font-size:24px;
+
+    color:#8f7cff;
+
+    background:rgba(143,124,255,.12);
+
+}
+
+.contact-card h4{
+
+    margin-bottom:6px;
+
+    font-size:18px;
+
+}
+
+.contact-card p{
+
+    color:#c8c8c8;
+
+}
+/* ===========================
+   SOCIAL ICONS
+=========================== */
+
+.contact-social{
+
+    display:flex;
+
+    gap:18px;
+
+    margin-top:40px;
+
+}
+
+.contact-social a{
+
+    width:56px;
+    height:56px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    text-decoration:none;
+
+    font-size:22px;
+
+    color:#fff;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    transition:.35s ease;
+
+}
+
+.contact-social a:hover{
+
+    transform:translateY(-6px);
+
+    background:#8f7cff;
+
+    border-color:#8f7cff;
+
+    box-shadow:
+    0 15px 40px rgba(143,124,255,.25);
+
+}
+
+/* ===========================
+   RIGHT SIDE
+=========================== */
+
+.contact-form{
+
+    padding:40px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(25px);
+
+}
+
+.input-group{
+
+    margin-bottom:22px;
+
+}
+
+.input-group input,
+.input-group textarea{
+
+    width:100%;
+
+    padding:18px 22px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:16px;
+
+    font-size:16px;
+
+    color:#fff;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s ease;
+
+    resize:none;
+
+    box-sizing:border-box;
+
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder{
+
+    color:#999;
+
+}
+
+.input-group input:focus,
+.input-group textarea:focus{
+
+    border-color:#8f7cff;
+
+    box-shadow:
+    0 0 0 4px rgba(143,124,255,.12);
+
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.contact-btn{
+
+    width:100%;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#8f7cff;
+
+    color:#fff;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s ease;
+
+}
+
+.contact-btn:hover{
+
+    transform:translateY(-5px);
+
+    background:#7b67ff;
+
+    box-shadow:
+    0 18px 40px rgba(143,124,255,.35);
+
+}
+
+.contact-btn:disabled{
+
+    opacity:.7;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+}
+
+/* Honeypot: hidden from everyone, only bots that auto-fill every
+   field will trigger it */
+.honeypot-field{
+
+    position:absolute;
+
+    left:-9999px;
+
+    width:1px;
+
+    height:1px;
+
+    opacity:0;
+
+    pointer-events:none;
+
+}
+
+/* ===========================
+   NOTE & STATUS
+=========================== */
+
+.contact-note{
+
+    margin-top:14px;
+
+    text-align:center;
+
+    font-size:13px;
+
+    color:rgba(255,255,255,.5);
+
+}
+
+.contact-status{
+
+    margin-top:10px;
+
+    text-align:center;
+
+    font-size:14px;
+
+    min-height:20px;
+
+}
+
+.contact-status:not(:empty){
+
+    color:#8f7cff;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:992px){
+
+.contact-container{
+
+grid-template-columns:1fr;
+
+gap:60px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.contact{
+
+padding:90px 25px;
+
+}
+
+.contact-title{
+
+font-size:38px;
+
+}
+
+.contact-description{
+
+font-size:16px;
+
+}
+
+.contact-form{
+
+padding:25px;
+
+}
+
+.contact-social{
+
+justify-content:center;
+
+}
+
+.contact-card{
+
+padding:20px;
+
+}
+
+}

@@ -1,0 +1,90 @@
+/* ===========================
+   ROBOT MASCOT
+=========================== */
+
+.robot-mascot-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.robot-mascot {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 50%;
+}
+
+.robot-mascot:focus-visible {
+  outline: 2px solid #8f7cff;
+  outline-offset: 4px;
+}
+
+.robot-svg {
+  width: 120px;
+  height: 120px;
+  overflow: visible;
+  display: block;
+  filter: drop-shadow(0 8px 20px rgba(143, 124, 255, 0.35));
+  transition: transform 0.25s ease;
+}
+
+.robot-mascot:hover .robot-svg {
+  transform: scale(1.05);
+}
+
+.robot-mascot:active .robot-svg {
+  transform: scale(0.96);
+}
+
+/* ---- Speech bubble ---- */
+
+.robot-speech {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translate(-50%, 6px);
+  min-width: 140px;
+  max-width: 220px;
+  padding: 8px 14px;
+  border-radius: 14px;
+  background: rgba(20, 20, 30, 0.92);
+  border: 1px solid rgba(143, 124, 255, 0.35);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+  white-space: normal;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  z-index: 5;
+}
+
+.robot-speech::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(20, 20, 30, 0.92);
+}
+
+.robot-speech.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+@media (max-width: 768px) {
+  .robot-svg {
+    width: 100px;
+    height: 100px;
+  }
+}
