@@ -121,65 +121,7 @@
 
     border:none;
 
-    pointer-events:none;
-
-}
-
-.resume-preview-link{
-
-    position:absolute;
-
-    inset:0;
-
-    display:flex;
-
-    align-items:flex-end;
-
-    justify-content:center;
-
-    padding-bottom:28px;
-
-    background:linear-gradient(
-        to top,
-        rgba(0,0,0,.55),
-        transparent 40%
-    );
-
-    opacity:0;
-
-    transition:opacity .35s ease;
-
-}
-
-.resume-preview-wrap:hover .resume-preview-link{
-
-    opacity:1;
-
-}
-
-.resume-preview-hint{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    padding:12px 22px;
-
-    border-radius:999px;
-
-    background:rgba(255,255,255,.1);
-
-    border:1px solid rgba(255,255,255,.18);
-
-    backdrop-filter:blur(18px);
-
-    font-size:14px;
-
-    font-weight:600;
-
-    color:#fff;
+    display:block;
 
 }
 

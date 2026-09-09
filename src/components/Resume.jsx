@@ -1,7 +1,8 @@
-import { FaFilePdf, FaDownload, FaExternalLinkAlt } from "react-icons/fa";
+import { FaFilePdf, FaDownload } from "react-icons/fa";
 import "../styles/Resume.css";
 
 const RESUME_PATH = "/resume/Resume.pdf";
+const RESUME_PREVIEW_PATH = `${RESUME_PATH}#toolbar=0&navpanes=0&statusbar=0&view=FitH`;
 
 function Resume() {
   return (
@@ -20,25 +21,10 @@ function Resume() {
 
       <div className="resume-preview-wrap">
         <iframe
-          src={RESUME_PATH}
+          src={RESUME_PREVIEW_PATH}
           title="Resume preview"
           className="resume-preview"
-          aria-hidden="true"
-          tabIndex="-1"
         />
-
-        <a
-          href={RESUME_PATH}
-          target="_blank"
-          rel="noreferrer"
-          className="resume-preview-link"
-          aria-label="Open resume PDF in a new tab"
-        >
-          <span className="resume-preview-hint">
-            <FaExternalLinkAlt />
-            View Full Resume
-          </span>
-        </a>
       </div>
 
       <div className="resume-actions">

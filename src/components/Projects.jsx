@@ -15,6 +15,8 @@ const projects = [
 
     title: "IntelliRAG — Incident-Centric RAG for Terrorism Analysis",
 
+    image: "/images/intellirag-landing.webp",
+
     description:
       "A multi-modal RAG platform ingesting 5 document/media types (PDFs, news articles, scanned documents, images, reports) into structured, searchable intelligence records via a 6-stage pipeline — OCR, information extraction, entity/relationship mapping, semantic retrieval, layered summarization and analyst-oriented querying — to support threat assessment and intelligence-driven decision making.",
 
@@ -31,6 +33,8 @@ const projects = [
     poster: null,
 
     title: "BiteRate — Restaurant Review Sentiment Analyzer",
+
+    image: "/images/biterate-landing.webp",
 
     description:
       "An end-to-end NLP pipeline for restaurant review sentiment analysis with emoji-aware preprocessing, tokenization, lemmatization, negation handling and TF-IDF vectorization. Trained and benchmarked 5 models — Logistic Regression, Naive Bayes, Linear SVC, XGBoost and a Soft Voting Ensemble — reaching up to 88% accuracy, deployed through an interactive Flask dashboard for real-time predictions.",
@@ -67,6 +71,8 @@ const projects = [
     poster: null,
 
     title: "Personal Stock Recommender System",
+
+    image: "/images/stock-recommender-landing.webp",
 
     description:
       "A full-stack stock recommendation system that generates personalized stock suggestions based on user risk profiles, with a clean REST API and scalable backend architecture.",
