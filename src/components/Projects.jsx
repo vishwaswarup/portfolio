@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
   {
     id: 1,
-    badge: "IN PROGRESS",
+    badge: "GITHUB PROJECT",
     video: null,
     poster: null,
 
@@ -101,6 +101,23 @@ const projects = [
     demo: null,
 
     github: "https://github.com/vishwaswarup/VisionAI",
+  },
+  {
+    id: 6,
+    badge: "UPCOMING",
+    video: null,
+    poster: null,
+
+    title: "AI-Logistic-Orchestrator",
+
+    description:
+      "Autonomous AI Dispatch Console: building a ReAct (Reason and Act) agent using frameworks like LangGraph that integrates spatial SQL telemetry and live weather data to actively resolve logistics and supply-chain risks. Currently in early development.",
+
+    tech: ["Python", "LangGraph", "ReAct Agents", "SQL", "Weather API"],
+
+    demo: null,
+
+    github: "https://github.com/vishwaswarup/AI-Logistics-Orchestrator",
   },
 ];
 
