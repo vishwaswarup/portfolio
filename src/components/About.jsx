@@ -114,9 +114,9 @@ function About() {
 
         <div className="about-card">
 
-          <h3>6+</h3>
+          <h3>CAIR, DRDO</h3>
 
-          <p>Working Projects</p>
+          <p>AI Intern, Bangalore (Jun – Jul 2026)</p>
 
         </div>
 
