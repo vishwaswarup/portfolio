@@ -68,35 +68,65 @@ async function getReply(text, history) { // eslint-disable-line no-unused-vars
   return matchReply(text);
 }
 
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+// Texting rhythm: a beat before the reply starts being typed, then typing time
+// that grows with the length of the answer.
+const READ_DELAY_MS = 600;
+const typingTime = (text) => Math.min(3200, Math.max(1100, 700 + text.length * 16));
+
 export default function ChatAgent({ isDarkMode, themeClasses, onNavigate, accentColor = '#8f7cff', open, onToggle }) {
   const [input, setInput] = useState('');
-  const [messages, setMessages] = useState([
-    { role: 'bot', text: GREETING },
-  ]);
-  const [pending, setPending] = useState(false);
+  const [messages, setMessages] = useState([]);
+  const [typing, setTyping] = useState(false); // typing dots visible
+  const [pending, setPending] = useState(false); // blocks sending mid-conversation
+  const greeted = useRef(false);
   const scrollRef = useRef(null);
 
+  // First open: the greeting arrives like a message instead of being on screen already.
   useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-    }
-  }, [messages, open]);
+    if (!open || greeted.current) return;
+    greeted.current = true;
+    setPending(true);
+    setTyping(true);
+    // No cleanup on purpose: the widget lives as long as the page, and a
+    // cleanup would cancel this under React strict mode's double effect run.
+    setTimeout(() => {
+      setTyping(false);
+      setMessages([{ role: 'bot', text: GREETING }]);
+      setPending(false);
+    }, 1300);
+  }, [open]);
+
+  // Glide to the newest message rather than jumping.
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (el) el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' });
+  }, [messages, typing, open]);
 
   const respond = async (text) => {
     if (pending) return;
     const history = [...messages, { role: 'user', text }];
     setMessages(history);
     setPending(true);
+    const started = Date.now();
+    const typingTimer = setTimeout(() => setTyping(true), READ_DELAY_MS);
     let match;
     try {
       match = await getReply(text, history);
     } catch {
       match = { reply: FALLBACK_REPLY };
     }
-    setPending(false);
+    // Never faster than a person could type it; a slow LLM call simply keeps
+    // the dots on for longer.
+    const wait = READ_DELAY_MS + typingTime(match.reply) - (Date.now() - started);
+    if (wait > 0) await sleep(wait);
+    clearTimeout(typingTimer);
+    setTyping(false);
     setMessages((prev) => [...prev, { role: 'bot', text: match.reply }]);
+    setPending(false);
     if (match.action) {
-      setTimeout(() => onNavigate(match.action), 400);
+      setTimeout(() => onNavigate(match.action), 1100);
     }
   };
 
@@ -149,7 +179,7 @@ export default function ChatAgent({ isDarkMode, themeClasses, onNavigate, accent
 
           <div ref={scrollRef} className="flex-1 overflow-y-auto px-5 py-4 space-y-3">
             {messages.map((m, i) => (
-              <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+              <div key={i} style={{ transformOrigin: m.role === 'user' ? 'right bottom' : 'left bottom' }} className={`chat-msg-in flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div
                   className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
                     m.role === 'user'
@@ -161,19 +191,28 @@ export default function ChatAgent({ isDarkMode, themeClasses, onNavigate, accent
                 </div>
               </div>
             ))}
-            {pending && (
-              <div className="flex justify-start">
-                <div className={`rounded-2xl px-4 py-2.5 text-sm ${themeClasses.subCard} ${isDarkMode ? 'text-gray-400' : 'text-neutral-500'}`} aria-live="polite">Typing…</div>
+            {typing && (
+              <div className="chat-msg-in flex justify-start" style={{ transformOrigin: 'left bottom' }} role="status" aria-label="Typing">
+                <div className={`flex items-center gap-1.5 rounded-2xl px-4 py-3.5 ${themeClasses.subCard}`}>
+                  {[0, 1, 2].map((d) => (
+                    <span
+                      key={d}
+                      style={{ animationDelay: `${d * 0.18}s` }}
+                      className={`typing-dot w-1.5 h-1.5 rounded-full ${isDarkMode ? 'bg-gray-400' : 'bg-neutral-500'}`}
+                    />
+                  ))}
+                </div>
               </div>
             )}
           </div>
 
-          <div className="px-5 pb-3 flex flex-wrap gap-2">
+          <div className="shrink-0 px-5 pb-3 flex flex-nowrap gap-2 overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {QUICK_REPLIES.map((q) => (
               <button
                 key={q}
                 onClick={() => respond(q)}
-                className={`text-[11px] font-bold px-3 py-1.5 rounded-full border transition-colors ${
+                disabled={pending}
+                className={`shrink-0 whitespace-nowrap text-[11px] font-bold px-3 py-1.5 rounded-full border transition-colors disabled:opacity-50 disabled:pointer-events-none ${
                   isDarkMode ? 'border-white/10 text-gray-300 hover:border-emerald-500/50 hover:text-emerald-300' : 'border-neutral-200 text-neutral-600 hover:border-emerald-500/50 hover:text-emerald-600'
                 }`}
               >

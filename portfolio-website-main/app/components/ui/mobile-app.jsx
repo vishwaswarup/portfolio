@@ -317,8 +317,13 @@ export default function MobileApp({
                 {TAGLINE}
               </p>
               <div className="relative h-52 rounded-2xl overflow-hidden bg-black">
-                <img src={mindsetShot.src} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover scale-125 blur-2xl opacity-60" />
-                <img key={mindsetShot.src} src={mindsetShot.src} alt={`${mindsetShot.alt} screenshot`} className="absolute inset-x-0 top-1/2 -translate-y-1/2 w-full h-auto animate-photo-settle" />
+                <img
+                  key={mindsetShot.src}
+                  src={mindsetShot.src}
+                  alt={`${mindsetShot.alt} screenshot`}
+                  style={{ objectPosition: mindsetShot.position }}
+                  className="absolute inset-0 w-full h-full object-cover animate-photo-settle"
+                />
               </div>
             </section>
             <section className={`relative overflow-hidden rounded-[1.75rem] p-5 ${themeClasses.card}`}>

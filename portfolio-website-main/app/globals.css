@@ -94,6 +94,25 @@ button {
   animation: orb-spin 4s linear infinite;
 }
 
+/* Chat: bubbles pop in and the typing dots bounce, like a messaging app. */
+@keyframes msg-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.94); }
+  to { opacity: 1; transform: none; }
+}
+
+.chat-msg-in {
+  animation: msg-in 0.32s cubic-bezier(0.22, 0.7, 0.3, 1) both;
+}
+
+@keyframes typing-dot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+
+.typing-dot {
+  animation: typing-dot 1.2s ease-in-out infinite;
+}
+
 /* Phone home screen: tiles settle in one after another once the intro clears. */
 @keyframes tile-in {
   from { opacity: 0; transform: translateY(18px) scale(0.97); }
@@ -122,6 +141,8 @@ button {
   .animate-gentle-float,
   .animate-spin-slow,
   .glow-pulse,
+  .chat-msg-in,
+  .typing-dot,
   .ai-orb,
   .ai-orb-shine {
     animation: none !important;

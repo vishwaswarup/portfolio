@@ -5,12 +5,13 @@ export const PHONE = '+91 9650135762';
 export const RESUME = '/Resume.pdf';
 export const TAGLINE = "I make full stack AI products when I'm bored, and I am always bored. Apart from an engineer, Art inspires me to live my life.";
 
-// Screenshots cycled in the Mindset card.
+// Screenshots cycled in the Mindset card. `position` is the crop focus (CSS
+// object-position) for the zoomed, filled view.
 export const BUILD_SHOTS = [
-  { src: '/images/intellirag-landing.webp', alt: 'IntelliRAG' },
-  { src: '/images/biterate-landing.webp', alt: 'BiteRate' },
-  { src: '/images/artefax-landing.webp', alt: 'Artefax' },
-  { src: '/images/stock-recommender-landing.webp', alt: 'Personal Stock Recommender' },
+  { src: '/images/intellirag-landing.webp', alt: 'IntelliRAG', position: '38% center' },
+  { src: '/images/biterate-landing.webp', alt: 'BiteRate', position: '50% center' },
+  { src: '/images/artefax-landing.webp', alt: 'Artefax', position: '37% center' },
+  { src: '/images/stock-recommender-landing.webp', alt: 'Personal Stock Recommender', position: '32% center' },
 ];
 
 export const LINKS = {

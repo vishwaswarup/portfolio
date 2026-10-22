@@ -240,13 +240,13 @@ const Portfolio = () => {
               </p>
             </div>
             <div className={`relative flex-1 min-h-[220px] rounded-[2rem] overflow-hidden shadow-inner bg-black ${themeClasses.subCard}`}>
-              {/* Screenshots are landscape: shown whole over a blurred copy of themselves */}
-              <img src={BUILD_SHOTS[mindsetIndex].src} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover scale-125 blur-2xl opacity-60" />
+              {/* Screenshots are landscape: zoomed to fill, cropped to each one's focus point */}
               <img
                 key={mindsetIndex}
                 src={BUILD_SHOTS[mindsetIndex].src}
                 alt={`${BUILD_SHOTS[mindsetIndex].alt} screenshot`}
-                className="absolute inset-x-0 top-1/2 -translate-y-1/2 w-full h-auto animate-photo-settle"
+                style={{ objectPosition: BUILD_SHOTS[mindsetIndex].position }}
+                className="absolute inset-0 w-full h-full object-cover animate-photo-settle"
               />
             </div>
           </div>
@@ -304,7 +304,7 @@ const Portfolio = () => {
           </div>
         </section>
         {/* SCROLL-REVEALED BANNER — wipes open under the bento */}
-        <RevealBanner src="/ironman-banner.jpg" position="center 30%" caption="“I am just a mechanic, I like solving problems”" className="mb-16 sm:mb-24 lg:mb-32" />
+        <RevealBanner src="/tonystark-banner.jpg" position="center 50%" caption="“I am just a mechanic, I like solving problems”" className="mb-16 sm:mb-24 lg:mb-32" />
 
         {/* PROJECTS SECTION */}
         <section id="projects" className="mb-16 sm:mb-24 lg:mb-32">
