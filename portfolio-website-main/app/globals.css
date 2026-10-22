@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+@keyframes glow-pulse {
+  0% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+  100% { opacity: 0.3; transform: scale(1); }
+}
+
+.glow-pulse {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+@keyframes gentle-float {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-6px, -10px); }
+  50% { transform: translate(4px, -4px); }
+  75% { transform: translate(-4px, 6px); }
+}
+
+.animate-gentle-float {
+  animation: gentle-float 7s ease-in-out infinite;
+}
+
+@keyframes orb-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px 6px color-mix(in srgb, var(--orb-color) 45%, transparent),
+      0 0 40px 16px color-mix(in srgb, var(--orb-color) 20%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 30px 10px color-mix(in srgb, var(--orb-color) 65%, transparent),
+      0 0 60px 24px color-mix(in srgb, var(--orb-color) 32%, transparent);
+  }
+}
+
+@keyframes orb-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.ai-orb {
+  --orb-color: #8f7cff;
+  background: radial-gradient(
+    circle at 32% 28%,
+    color-mix(in srgb, var(--orb-color) 65%, white) 0%,
+    var(--orb-color) 45%,
+    color-mix(in srgb, var(--orb-color) 65%, black) 100%
+  );
+  animation: orb-pulse 3s ease-in-out infinite;
+  overflow: hidden;
+  transition: background 0.6s ease;
+}
+
+.ai-orb-shine {
+  position: absolute;
+  inset: -30%;
+  background: conic-gradient(from 0deg, transparent 0deg, rgba(255, 255, 255, 0.35) 40deg, transparent 90deg, transparent 360deg);
+  animation: orb-spin 4s linear infinite;
+}
+
+/* Phone home screen: tiles settle in one after another once the intro clears. */
+@keyframes tile-in {
+  from { opacity: 0; transform: translateY(18px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+
+.tile-in {
+  animation: tile-in 0.62s cubic-bezier(0.22, 0.7, 0.3, 1) both;
+  animation-delay: calc(var(--i, 0) * 55ms);
+}
+
+@keyframes photo-settle {
+  from { opacity: 0.45; }
+  to { opacity: 1; }
+}
+
+.animate-photo-settle {
+  animation: photo-settle 1.1s cubic-bezier(0.22, 0.7, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .tile-in,
+  .animate-photo-settle,
+  .animate-gentle-float,
+  .animate-spin-slow,
+  .glow-pulse,
+  .ai-orb,
+  .ai-orb-shine {
+    animation: none !important;
+  }
+}
+
