@@ -50,7 +50,3 @@ Requires Node 18.17 or newer. There are no environment variables.
 ## Deploying to Vercel
 
 The repo root is the Next.js app, so Vercel needs no special settings: leave **Root Directory** empty, and Framework Preset is pinned to Next.js by `vercel.json`. Build command, output directory and install command stay on their defaults. Pushing to `main` deploys.
-
-## Credits
-
-Layout and components are adapted from an open-source portfolio template by Abdalla Elsiddig (MIT), whose licence is kept in `LICENSE`.
