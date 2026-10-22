@@ -1,19 +1,23 @@
 {
-  "name": "abdalla-portfolio",
+  "name": "portfolio",
   "version": "1.0.0",
-  "description": "Professional portfolio website for Abdalla Elsiddig",
+  "private": true,
+  "description": "Portfolio website of Vishwaswarup Rath, Machine Learning Engineer",
+  "engines": {
+    "node": ">=18.17.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "lucide-react": "^0.263.0",
     "next": "^14.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^5.7.0",
-    "thinking-orbs": "^0.3.2"
+    "react-icons": "^5.7.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",

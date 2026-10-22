@@ -1,7 +1,7 @@
 "use client";
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
-  X, ChevronLeft, ArrowUpRight, Play, Sun, Moon, Briefcase, FileText, Download,
+  X, ChevronLeft, ArrowUpRight, Sun, Moon, Briefcase, FileText,
   Github, Linkedin, Mail, MapPin, User, Hammer, Quote,
 } from 'lucide-react';
 import { SiLeetcode } from 'react-icons/si';
